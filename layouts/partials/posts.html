@@ -1,0 +1,10 @@
+<div class="divide-y-2 divide-dotted divide-stone-900">
+    <!-- posts expects to be passed the pages themselves as its argument   -->
+
+    {{ $paginator := .Paginate .ByDate 5 }}
+    {{ range $paginator.Pages }}
+    {{ partial "post.html" . }}
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+</div>

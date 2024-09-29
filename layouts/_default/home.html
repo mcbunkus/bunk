@@ -1,0 +1,9 @@
+{{ define "main" }}
+
+{{ .Content }}
+{{ if .Site.Params.blogSection }}
+{{ $page := site.GetPage site.Params.blogSection }}
+{{ partial "posts" $page.RegularPages }}
+{{ end }}
+
+{{ end }}
