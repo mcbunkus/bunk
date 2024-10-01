@@ -8,6 +8,10 @@ a {
     @apply underline hover:font-bold;
 }
 
+hr {
+    @apply border-red-500 fill-red-500;
+}
+
 img {
     @apply mx-auto my-4 border-stone-900 border-solid border-2;
 }

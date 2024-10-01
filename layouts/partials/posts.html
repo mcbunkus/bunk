@@ -1,10 +1,31 @@
-<div class="divide-y-2 divide-dotted divide-stone-900">
-    <!-- posts expects to be passed the pages themselves as its argument   -->
+{{ $paginator := .Paginate ( union .Sections .RegularPages ).ByDate.Reverse }}
+<div>
+    <div class="divide-y-2 divide-dotted divide-stone-900">
+        {{ range $paginator.Pages }}
+        {{ partial "post.html" . }}
+        {{ end }}
+    </div>
 
-    {{ $paginator := .Paginate .ByDate 5 }}
-    {{ range $paginator.Pages }}
-    {{ partial "post.html" . }}
+    {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
+
+    <div class="not-prose flex items-baseline justify-center space-x-4">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL}}">Previous</a>
+        {{ end }}
+
+
+        {{ range $index, $pager := $paginator.Pagers }}
+        {{ if eq .PageNumber $paginator.PageNumber }}
+        <div class="text-xl font-black"> {{ $pager.PageNumber }}</div>
+        {{ else }}
+        <a class="text-xl" href="{{ $pager.URL }}"> {{ $pager.PageNumber }}</a>
+        {{ end }}
+        {{ end }}
+
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}">Next</a>
+        {{ end }}
+    </div>
+
     {{ end }}
-
-    {{ partial "pagination.html" . }}
 </div>

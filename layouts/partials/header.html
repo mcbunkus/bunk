@@ -1,4 +1,9 @@
-<nav class="flex items-baseline py-4 sm:text-base md:text-lg border-dotted border-b-2 border-b-slate-900">
-    <a class="flex-grow " href="/">{{ site.Title }}</a>
+<nav
+    class="bg-stone-50 not-prose flex items-center py-4 sm:text-base md:text-lg border-b-2 border-dotted border-b-slate-900">
+    <!-- Hamburger Icon (hidden on large screens) -->
+
+    <div class="flex-grow">
+        <a href="/">{{ site.Title }}</a>
+    </div>
     {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 </nav>

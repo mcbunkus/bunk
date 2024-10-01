@@ -4,5 +4,5 @@
         <h5 class="mr-4 py-0 text-light-text">{{ .Date | time.Format ":date_long" }}</h5>
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
-    <p class="text-light-text py-2 not-prose">{{.Summary}}</p>
+    <div class="text-light-text py-2 not-prose">{{.Summary}}</div>
 </div>

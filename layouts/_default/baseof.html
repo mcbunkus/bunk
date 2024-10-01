@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html dir="{{ or site.Language.LanguageDirection `ltr` }}"
-      lang="{{ or site.Language.LanguageCode site.Language.Lang }}">
+    lang="{{ or site.Language.LanguageCode site.Language.Lang }}">
+
 <head>
     {{ partial "head.html" . }}
 </head>
+
 <body class="font-serif bg-stone-50 text-stone-900">
-<div class="max-w-screen-md min-h-screen mx-auto px-8 flex flex-col">
-    <header class="flex-grow sticky top-0 z-50 bg-stone-50">
-        {{ partial "header.html" . }}
-    </header>
-    <main class="flex-grow py-8">
-        <article class="prose prose-stone">
-            {{ block "main" . }}{{ end }}
-        </article>
-    </main>
-    <footer class="text-center sticky bottom-0 z-50 bg-stone-50">
+    <div class="prose prose-stone min-h-screen mx-auto px-8 flex flex-col">
+        <header class="flex-grow sticky top-0 z-50 ">
+            {{ partial "header.html" . }}
+        </header>
+        <main class="flex-grow py-8 md:py-12">
+            <article>
+                {{ block "main" . }}{{ end }}
+            </article>
+        </main>
         {{ partial "footer.html" . }}
-    </footer>
-</div>
+    </div>
 </body>
+
 </html>
