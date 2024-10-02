@@ -14,7 +14,9 @@ For a given taxonomy, renders a list of terms assigned to the page.
 <div>
     <ul class="flex space-x-2 list-none not-prose">
         {{- range . }}
-        <li><a class="before:content-['#']" href="{{ .RelPermalink }}">{{ lower .LinkTitle }}</a></li>
+        <li>
+            {{ partial "term" . }}
+        </li>
         {{- end }}
     </ul>
 </div>

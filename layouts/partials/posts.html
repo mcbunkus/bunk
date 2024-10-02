@@ -1,6 +1,13 @@
-{{ $paginator := .Paginate ( union .Sections .RegularPages ).ByDate.Reverse }}
+{{ $paginator := . }}
+
+{{ if eq .Type "tags" }}
+{{ $paginator = .Paginate .Pages }}
+{{ else }}
+{{ $paginator = .Paginate ( union .Sections .RegularPages ).ByDate.Reverse }}
+{{ end }}
+
 <div>
-    <div class="divide-y-2 divide-dotted divide-stone-900">
+    <div class="divide-y divide-stone-500">
         {{ range $paginator.Pages }}
         {{ partial "post.html" . }}
         {{ end }}

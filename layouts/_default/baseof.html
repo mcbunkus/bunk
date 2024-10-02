@@ -6,12 +6,13 @@
     {{ partial "head.html" . }}
 </head>
 
-<body class="font-serif bg-stone-50 text-stone-900">
-    <div class="prose prose-stone min-h-screen mx-auto px-8 flex flex-col">
-        <header class="flex-grow sticky top-0 z-50 ">
+<body
+    class="font-serif bg-stone-50 prose-headings:text-stone-700 prose-p:text-stone-700 prose-a:text-stone-900 prose-hr:border-stone-500">
+    <div class="min-h-screen mx-auto px-8 flex flex-col prose prose-stone ">
+        <header class="flex-grow sticky top-0 z-50">
             {{ partial "header.html" . }}
         </header>
-        <main class="flex-grow py-8 md:py-12">
+        <main class="flex-grow pb-6 pt-8 md:pt-12 md:pb-16">
             <article>
                 {{ block "main" . }}{{ end }}
             </article>

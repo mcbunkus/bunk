@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1216,41 +1218,37 @@ video {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.divide-y-2 > :not([hidden]) ~ :not([hidden]){
+.divide-y > :not([hidden]) ~ :not([hidden]){
   --tw-divide-y-reverse: 0;
-  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
-  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
-.divide-dotted > :not([hidden]) ~ :not([hidden]){
-  border-style: dotted;
-}
-
-.divide-stone-900 > :not([hidden]) ~ :not([hidden]){
+.divide-stone-500 > :not([hidden]) ~ :not([hidden]){
   --tw-divide-opacity: 1;
-  border-color: rgb(28 25 23 / var(--tw-divide-opacity));
+  border-color: rgb(120 113 108 / var(--tw-divide-opacity));
 }
 
-.border-b-2{
-  border-bottom-width: 2px;
+.border-b{
+  border-bottom-width: 1px;
 }
 
-.border-t-2{
-  border-top-width: 2px;
+.border-t{
+  border-top-width: 1px;
 }
 
-.border-dotted{
-  border-style: dotted;
+.border-solid{
+  border-style: solid;
 }
 
-.border-b-slate-900{
+.border-stone-500{
   --tw-border-opacity: 1;
-  border-bottom-color: rgb(15 23 42 / var(--tw-border-opacity));
+  border-color: rgb(120 113 108 / var(--tw-border-opacity));
 }
 
-.border-t-slate-900{
+.border-t-stone-500{
   --tw-border-opacity: 1;
-  border-top-color: rgb(15 23 42 / var(--tw-border-opacity));
+  border-top-color: rgb(120 113 108 / var(--tw-border-opacity));
 }
 
 .bg-stone-50{
@@ -1258,8 +1256,8 @@ video {
   background-color: rgb(250 250 249 / var(--tw-bg-opacity));
 }
 
-.fill-stone-900{
-  fill: #1c1917;
+.fill-stone-700{
+  fill: #44403c;
 }
 
 .\!py-0{
@@ -1292,21 +1290,20 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.py-8{
+.pb-6{
+  padding-bottom: 1.5rem;
+}
+
+.pt-8{
   padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .text-center{
   text-align: center;
 }
 
-.text-right{
-  text-align: right;
-}
-
 .font-serif{
-  font-family: Vollkorn, Georgia, serif;
+  font-family: Lora, Georgia, serif;
 }
 
 .text-lg{
@@ -1332,9 +1329,9 @@ video {
   color: rgb(120 113 108 / var(--tw-text-opacity));
 }
 
-.text-stone-900{
+.text-stone-600{
   --tw-text-opacity: 1;
-  color: rgb(28 25 23 / var(--tw-text-opacity));
+  color: rgb(87 83 78 / var(--tw-text-opacity));
 }
 
 a{
@@ -1345,12 +1342,6 @@ a:hover{
   font-weight: 700;
 }
 
-hr{
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity));
-  fill: #ef4444;
-}
-
 img{
   margin-left: auto;
   margin-right: auto;
@@ -1359,12 +1350,32 @@ img{
   border-width: 2px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(28 25 23 / var(--tw-border-opacity));
+  border-color: rgb(120 113 108 / var(--tw-border-opacity));
 }
 
 .before\:content-\[\'\#\'\]::before{
   --tw-content: '#';
   content: var(--tw-content);
+}
+
+.prose-headings\:text-stone-700 :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"],[class~="not-prose"] *))){
+  --tw-text-opacity: 1;
+  color: rgb(68 64 60 / var(--tw-text-opacity));
+}
+
+.prose-p\:text-stone-700 :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))){
+  --tw-text-opacity: 1;
+  color: rgb(68 64 60 / var(--tw-text-opacity));
+}
+
+.prose-a\:text-stone-900 :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *))){
+  --tw-text-opacity: 1;
+  color: rgb(28 25 23 / var(--tw-text-opacity));
+}
+
+.prose-hr\:border-stone-500 :is(:where(hr):not(:where([class~="not-prose"],[class~="not-prose"] *))){
+  --tw-border-opacity: 1;
+  border-color: rgb(120 113 108 / var(--tw-border-opacity));
 }
 
 @media (min-width: 640px){
@@ -1398,9 +1409,12 @@ img{
     margin-bottom: 4rem;
   }
 
-  .md\:py-12{
+  .md\:pb-16{
+    padding-bottom: 4rem;
+  }
+
+  .md\:pt-12{
     padding-top: 3rem;
-    padding-bottom: 3rem;
   }
 
   .md\:text-lg{

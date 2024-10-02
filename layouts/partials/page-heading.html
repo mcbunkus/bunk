@@ -1,5 +1,13 @@
 {{ if .Title }}
 <div class="my-12 md:my-16">
+
+
+    {{ with .Parent }}
+
+    {{ partial "back-to" . }}
+
+    {{ end }}
+
     <h1 class="!mb-2">{{ .Title }}</h1>
 
     {{ if .Date }}
@@ -11,7 +19,7 @@
     </div>
     {{ else }}
     <div class="sm:flex sm:space-x-4 sm:items-baseline">
-        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+        {{ partial "terms" (dict "taxonomy" "tags" "page" .) }}
     </div>
     {{ end }}
 

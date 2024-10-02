@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {},
         fontFamily: {
-            'serif': ['Vollkorn', 'Georgia', 'serif'],
+            'serif': ['Lora', 'Georgia', 'serif'],
         },
     },
     plugins: [
