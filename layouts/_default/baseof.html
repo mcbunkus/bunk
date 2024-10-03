@@ -4,6 +4,10 @@
 
 <head>
     {{ partial "head.html" . }}
+
+    {{ if .Param "math" }}
+    {{ partialCached "math" . }}
+    {{ end }}
 </head>
 
 <body
