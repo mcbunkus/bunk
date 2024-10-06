@@ -1,38 +1,39 @@
 {{ $paginator := . }}
 
 {{ if eq .Type "tags" }}
-{{ $paginator = .Paginate .Pages }}
+  {{ $paginator = .Paginate .Pages }}
 {{ else }}
-{{ $paginator = .Paginate ( union .Sections .RegularPages ).ByDate.Reverse }}
+  {{ $paginator = .Paginate ( union .Sections .RegularPages ).ByDate.Reverse }}
 {{ end }}
 
-<div>
-    <div class="divide-y divide-stone-500">
-        {{ range $paginator.Pages }}
-        {{ partial "post.html" . }}
-        {{ end }}
-    </div>
 
-    {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
+<div>
+  <div class="divide-y divide-stone-500">
+    {{ range $paginator.Pages }}
+      {{ partial "post.html" . }}
+    {{ end }}
+  </div>
+
+  {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
 
     <div class="not-prose flex items-baseline justify-center space-x-4">
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL}}">Previous</a>
-        {{ end }}
+      {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}">Previous</a>
+      {{ end }}
 
-
-        {{ range $index, $pager := $paginator.Pagers }}
+      {{ range $index, $pager := $paginator.Pagers }}
         {{ if eq .PageNumber $paginator.PageNumber }}
-        <div class="text-xl font-black"> {{ $pager.PageNumber }}</div>
+          <div class="text-xl font-black">{{ $pager.PageNumber }}</div>
         {{ else }}
-        <a class="text-xl" href="{{ $pager.URL }}"> {{ $pager.PageNumber }}</a>
+          <a class="text-xl" href="{{ $pager.URL }}">
+            {{ $pager.PageNumber }}</a
+          >
         {{ end }}
-        {{ end }}
+      {{ end }}
 
-        {{ if $paginator.HasNext }}
+      {{ if $paginator.HasNext }}
         <a href="{{ $paginator.Next.URL }}">Next</a>
-        {{ end }}
+      {{ end }}
     </div>
-
-    {{ end }}
+  {{ end }}
 </div>

@@ -1,20 +1,17 @@
 {{ define "main" }}
+  {{ if eq .Kind "taxonomy" }}
+    <h1>Tags</h1>
 
-{{ if eq .Kind "taxonomy" }}
+    <div class="flex space-x-2 text-xl">
+      {{ range .Pages }}
+        {{ partial "term" . }}
+      {{ end }}
+    </div>
+  {{ else }}
 
-<h1>Tags</h1>
+    {{ partial "page-heading" . }}
+    {{ .Content }}
+    {{ partial "posts" . }}
 
-<div class="flex space-x-2 text-xl">
-    {{ range .Pages }}
-    {{ partial "term" . }}
-    {{ end }}
-</div>
-
-{{ else }}
-
-{{ partial "page-heading" . }}
-{{ .Content }}
-{{ partial "posts" . }}
-
-{{ end }}
+  {{ end }}
 {{ end }}

@@ -1,8 +1,12 @@
 <div class="py-6">
-    <h3 class="!my-0 !py-0"><a class="not-prose" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
-    <div class="flex flex-wrap items-baseline text-stone-500">
-        <h5 class="mr-4 py-0 text-light-text">{{ .Date | time.Format ":date_long" }}</h5>
-        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-    </div>
-    <div class="text-light-text py-2 not-prose">{{ .Summary }}</div>
+  <h3 class="!my-0 !py-0">
+    <a class="not-prose" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  </h3>
+  <div class="flex flex-wrap items-baseline text-stone-500">
+    <h5 class="mr-4 py-0 text-light-text">
+      {{ .Date | time.Format ":date_long" }}
+    </h5>
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </div>
+  <div class="text-light-text py-2 not-prose">{{ .Summary }}</div>
 </div>

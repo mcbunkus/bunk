@@ -1,8 +1,11 @@
 {{ define "main" }}
+  {{ .Content }}
+  {{ if .Site.Params.blogSection }}
+    {{ with $page := site.GetPage site.Params.blogSection }}
+      <hr />
+      <h1>Latest Posts</h1>
+      {{ partial "posts" $page }}
+    {{ end }}
 
-{{ .Content }}
-{{ if .Site.Params.blogSection }}
-{{ $page := site.GetPage site.Params.blogSection }}
-{{ partial "posts" $page }}
-{{ end }}
+  {{ end }}
 {{ end }}

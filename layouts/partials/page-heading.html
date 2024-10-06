@@ -1,27 +1,30 @@
+{{ $isPost := default true .Params.post }}
+
 {{ if .Title }}
-<div class="my-12 md:my-16">
-
-
+  <div class="mb-4 mt-6 md:mb-6 md:mt-10">
     {{ with .Parent }}
 
-    {{ partial "back-to" . }}
+      {{ partial "back-to" . }}
 
     {{ end }}
+
 
     <h1 class="!mb-2">{{ .Title }}</h1>
 
-    {{ if .Date }}
-    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $dateHuman := .Date | time.Format ":date_long" }}
-    <div class="flex flex-wrap items-baseline">
-        <time class="text-lg mr-4" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{ if and $isPost .Date  (or ( eq .Kind "page") (eq .Kind "section")) }}
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <div class="flex flex-wrap items-baseline">
+        <time class="text-lg mr-4" datetime="{{ $dateMachine }}"
+          >{{ $dateHuman }}</time
+        >
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-    </div>
+      </div>
     {{ else }}
-    <div class="sm:flex sm:space-x-4 sm:items-baseline">
+      <div class="sm:flex sm:space-x-4 sm:items-baseline">
         {{ partial "terms" (dict "taxonomy" "tags" "page" .) }}
-    </div>
+      </div>
     {{ end }}
 
-</div>
+  </div>
 {{ end }}

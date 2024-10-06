@@ -1,3 +1,11 @@
-<footer class="not-prose text-center sticky bottom-0 z-50 bg-stone-50 border-solid border-t border-t-stone-500">
-    <p class="py-4"> {{ site.Title }} &copy; {{ now.Year }}. all rights reserved.</p>
-</footer>
+<div>
+  {{/* this is to add a soft buffer between the header border and the content */}}
+  <div class="py-0.5 bg-gradient-to-t from-stone-50 via-stone-50 via-10%"></div>
+  <div
+    class="not-prose text-center bg-stone-50 border-solid border-t border-t-stone-500"
+  >
+    <p class="py-4">
+      {{ site.Title }} &copy; {{ now.Year }}. all rights reserved.
+    </p>
+  </div>
+</div>
